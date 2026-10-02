@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G. Yuvana | Resume</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #4f46e5;
+      --text: #1e293b;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.5;
+      background-color: var(--bg);
+      padding: 40px 20px;
+    }
+
+    .actions-panel {
+      max-width: 850px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-btn, .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .back-btn {
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    .back-btn:hover {
+      color: var(--text);
+      border-color: var(--text);
+      background: #f1f5f9;
+    }
+
+    .print-btn {
+      color: #ffffff;
+      background: var(--secondary);
+      border: none;
+    }
+
+    .print-btn:hover {
+      background: #4338ca;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    }
+
+    .resume-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 50px 60px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    .contact-item i {
+      width: 14px;
+      height: 14px;
+      color: var(--secondary);
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title i {
+      width: 17px;
+      height: 17px;
+      color: var(--secondary);
+    }
+
+    .summary-text {
+      font-size: 0.925rem;
+      color: var(--text);
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* Experience & Projects Entries */
+    .entry {
+      margin-bottom: 16px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .entry-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .entry-location {
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .entry-subtitle {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .entry-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .entry-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-top: 6px;
+    }
+
+    .entry-list li {
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .live-link {
+      color: var(--secondary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .live-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .skill-category {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .category-name {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .category-skills {
+      color: var(--text);
+    }
+
+    /* Education Table */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-left: 3px solid var(--secondary);
+      padding-left: 14px;
+    }
+
+    .edu-institution {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .edu-degree {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .edu-right {
+      text-align: right;
+    }
+
+    .edu-year {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .edu-grade {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--secondary);
+      background: rgba(79, 70, 229, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* Certifications */
+    .cert-list {
+      list-style-type: none;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+
+    .cert-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .cert-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* Declaration */
+    .declaration {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .declaration-signature {
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 8px;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+      }
+
+      .actions-panel {
+        display: none;
+      }
+
+      .resume-container {
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+      }
+
+      .section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls Panel -->
+  <div class="actions-panel">
+    <a href="index.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Portfolio</a>
+    <button onclick="window.print()" class="print-btn"><i data-lucide="printer"></i> Print / Save PDF</button>
+  </div>
+
+  <!-- Main Resume Container -->
+  <div class="resume-container">
+    
+    <!-- Header -->
+    <header class="header">
+      <h1 class="name">G. Yuvana</h1>
+      <div class="subtitle">Full-Stack Developer - CS Undergraduate — 3rd Year</div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i data-lucide="phone"></i>
+          <span>9398218441</span>
+        </div>
+        <div class="contact-item">
+          <i data-lucide="mail"></i>
+          <a href="mailto:yuvanareddyg@gmail.com">yuvanareddyg@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i data-lucide="linkedin"></i>
+          <a href="https://www.linkedin.com/in/yuvana-ganga07/" target="_blank">linkedin.com/in/yuvana-ganga07</a>
+        </div>
+        <div class="contact-item">
+          <i data-lucide="github"></i>
+          <a href="https://github.com/yuvanareddyg-ctrl" target="_blank">github.com/yuvanareddyg-ctrl</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="user"></i> Summary</h2>
+      <p class="summary-text">
+        Third-year B.Tech Computer Science student with a track record of building and shipping production-grade full-stack applications for real clients. Experienced across the full stack — React, Next.js, TypeScript, Node.js, Express, Supabase, and AI/LLM integration. Comfortable taking a feature from idea to deployment independently. Seeking a full-stack engineering internship to contribute meaningfully across the stack in a fast-moving team.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="briefcase"></i> Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Osmania Technology Business Incubator (OTBI), Osmania University</span>
+          <span class="entry-date">July 2026 – August 2026</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Full-Stack Developer Intern</span>
+          <span class="entry-location">Hyderabad, Telangana</span>
+        </div>
+        <ul class="entry-list">
+          <li>Built <strong>Aaharika</strong>, an AI-powered smart pantry and nutrition tracking web application for Indian households, as part of a three-person startup team incubated at OTBI.</li>
+          <li>Developed the full-stack architecture using Next.js, React 19, TypeScript, Tailwind CSS v4, and Supabase PostgreSQL for real-time data sync.</li>
+          <li>Integrated Google Gemini Vision (2.0-flash) API to power intelligent food recognition and nutritional analysis from user-captured pantry images.</li>
+          <li>Implemented Google OAuth authentication, real-time meal tracking, and inventory management across a responsive web interface.</li>
+          <li>Live working site: <a href="https://aaharikaotbi.vercel.app" target="_blank" class="live-link">https://aaharikaotbi.vercel.app</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="code-2"></i> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <span class="category-name">Languages:</span>
+          <span class="category-skills">JavaScript, React, TypeScript, Python, Java, C, C++</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">Frontend:</span>
+          <span class="category-skills">React, Next.js, HTML5, CSS3, Tailwind CSS, Vite, Responsive Design</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">Backend:</span>
+          <span class="category-skills">Node.js, Express.js, REST API Design</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">AI / LLM:</span>
+          <span class="category-skills">Groq API, LLaMA 70B, Google Gemini 2.0, Prompt Engineering, Generative AI</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">Databases:</span>
+          <span class="category-skills">PostgreSQL, MySQL, SQL, Supabase, Oracle Database, Relational DB Design</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">DevOps & Tools:</span>
+          <span class="category-skills">Git, GitHub, Vercel, Render, Oracle Cloud Infrastructure</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">Data & Analytics:</span>
+          <span class="category-skills">Tableau, Excel, Data Visualization, Business Intelligence</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">CS Fundamentals:</span>
+          <span class="category-skills">OOP, Data Structures, Algorithms, Agile, Debugging, Testing</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="folder-git-2"></i> Projects</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Personal Portfolio Website</span>
+          <span class="entry-date"><a href="https://yuvanaganga.vercel.app" target="_blank" class="live-link">yuvanaganga.vercel.app</a></span>
+        </div>
+        <div class="entry-subtitle">Next.js, TypeScript, Tailwind CSS, Vercel</div>
+        <ul class="entry-list">
+          <li>Designed and built a personal portfolio website showcasing projects, skills, and background — fully responsive and deployed on Vercel.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="graduation-cap"></i> Education</h2>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div>
+            <div class="edu-institution">Vignan Institution of Technology and Science, Hyderabad</div>
+            <div class="edu-degree">B.Tech — Computer Science</div>
+          </div>
+          <div class="edu-right">
+            <span class="edu-year">2024 – 2028</span>
+            <span class="edu-grade">CGPA 8.85</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-institution">Narayana Junior College, Hyderabad</div>
+            <div class="edu-degree">Intermediate — State Board</div>
+          </div>
+          <div class="edu-right">
+            <span class="edu-year">May 2024</span>
+            <span class="edu-grade">87.3%</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-institution">Narayana High School, Hyderabad</div>
+            <div class="edu-degree">Secondary School (SSC)</div>
+          </div>
+          <div class="edu-right">
+            <span class="edu-year">May 2022</span>
+            <span class="edu-grade">CGPA 9.7</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Simulations -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="award"></i> Certifications & Simulations</h2>
+      <ul class="cert-list">
+        <li><strong>Data Analytics Job Simulation</strong> — Deloitte Australia (via Forage), Jan 2026: designed interactive Tableau dashboards visualizing regional sales performance, profit distribution and learnt about Data Analytics</li>
+        <li><strong>Programming in Java</strong> — NPTEL (AICTE Swayam) · 2025</li>
+        <li><strong>Generative AI for All</strong> — Infosys Springboard · 2025</li>
+        <li><strong>AI for All</strong> — Infosys Springboard · 2025</li>
+        <li><strong>Oracle Cloud Infrastructure</strong> — Oracle · 2025</li>
+      </ul>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="section">
+      <h2 class="section-title"><i data-lucide="info"></i> Additional Information</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <span class="category-name">Languages:</span>
+          <span class="category-skills">English, Telugu, Hindi</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">Volunteer:</span>
+          <span class="category-skills">NSS</span>
+        </div>
+        <div class="skill-category">
+          <span class="category-name">Interests:</span>
+          <span class="category-skills">Art and Craft, Music, Cinema</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Declaration -->
+    <div class="declaration">
+      <p>I hereby declare that all the information provided in this resume is true and correct to the best of my knowledge and belief. I take full responsibility for the accuracy of the details mentioned above.</p>
+      <div class="declaration-signature">G. Yuvana</div>
+    </div>
+
+  </div>
+
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
